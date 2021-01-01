@@ -118,20 +118,17 @@ export async function getStaticPaths() {
     const xata = new BaseClient({
         branch: 'main',
         apiKey: process.env.API_KEY,
-        databaseURL: 'https://yhuakims-rtl9qu.xata.sh/db/hackthon'
+        databaseURL: process.env.XATA_DATABASE_URL
         //fetch: fetchImplementation // Required if your runtime doesn't provide a global `fetch` function.
     });
 
 
     const page = await xata.db.products
         .select(["*", "category_id.*", "inventory_id.*", "discount_id.*", "tag_id.*"])
-        .getPaginated({
-            pagination: {
-                size: 15,
-            },
-        });
+        .getAll()
 
-    const products = JSON.parse(JSON.stringify(page.records))
+    const products = JSON.parse(JSON.stringify(page))
+    console.log(products);
     const paths =
         products &&
         products.map((prod) => ({
@@ -148,20 +145,16 @@ export async function getStaticProps({ params }) {
     const xata = new BaseClient({
         branch: 'main',
         apiKey: process.env.API_KEY,
-        databaseURL: 'https://yhuakims-rtl9qu.xata.sh/db/hackthon'
+        databaseURL: process.env.XATA_DATABASE_URL
         //fetch: fetchImplementation // Required if your runtime doesn't provide a global `fetch` function.
     });
 
 
     const page = await xata.db.products
         .select(["*", "category_id.*", "inventory_id.*", "discount_id.*", "tag_id.*"])
-        .getPaginated({
-            pagination: {
-                size: 15,
-            },
-        });
+        .getAll()
 
-    const products = JSON.parse(JSON.stringify(page.records))
+    const products = JSON.parse(JSON.stringify(page))
     const product =
         products && products.filter((prod) => params.id === prod.id);
 
