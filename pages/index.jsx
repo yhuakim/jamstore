@@ -4,7 +4,7 @@ import { useVisitorData } from '@fingerprintjs/fingerprintjs-pro-react'
 import { useState, useEffect } from 'react'
 import Hero from '../components/Hero';
 import axios from 'axios'
-import Products from '../components/products';
+import Products from '../components/Products';
 
 export default function Home({ products }) {
   const { isLoading, data } = useVisitorData({ immediate: true })
