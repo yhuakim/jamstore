@@ -4,7 +4,7 @@ import { useVisitorData } from '@fingerprintjs/fingerprintjs-pro-react'
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-const product = ({ product }) => {
+const Product = ({ product }) => {
     const { price, id, discount_id } = product[0]
     //const { discount_percent } = discount_id
     const costPrice = !discount_id ? price : price - (price * discount_id.discount_percent)
@@ -80,7 +80,7 @@ const product = ({ product }) => {
         </>
     );
 };
-export default product;
+export default Product;
 
 export async function getStaticPaths() {
     const xata = new BaseClient({
