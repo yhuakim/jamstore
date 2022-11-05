@@ -3,6 +3,7 @@ import { useVisitorData } from '@fingerprintjs/fingerprintjs-pro-react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 const NavBar = () => {
     const [cartItems, setCartItems] = useState([])
@@ -46,13 +47,13 @@ const NavBar = () => {
                     <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul className="flex flex-col p-4 mt-4 bg-slate-100 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-slate-100">
                             <li>
-                                <a href="/" className="block py-2 pr-4 pl-3 text-white bg-black rounded md:bg-transparent md:text-black md:p-0" aria-current="page">Home</a>
+                                <Link href="/" className="block py-2 pr-4 pl-3 text-white bg-black rounded md:bg-transparent md:text-black md:p-0" aria-current="page">Home</Link>
                             </li>
                             <li>
-                                <a href="#products" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black md:p-0">Products</a>
+                                <Link href="#products" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black md:p-0">Products</Link>
                             </li>
                             <li>
-                                <a href="/contact" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black md:p-0">Contact</a>
+                                <Link href="/contact" className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black md:p-0">Contact</Link>
                             </li>
                         </ul>
                     </div>

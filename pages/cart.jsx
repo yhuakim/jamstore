@@ -33,8 +33,8 @@ export default function Cart() {
             <main>
                 <div id='products' className="">
                     <h1 className="text-3xl font-semibold text-center py-10">Products</h1>
-                    {cartItems.map((item) => (
-                        <div>{item.id} {item.quantity} {item.product_id.imageUrl} {item.product_id.name} {item.amount} </div>
+                    {cartItems.map((item, index) => (
+                        <div key={index} >{item.id} {item.quantity} {item.product_id.imageUrl} {item.product_id.name} {item.amount} </div>
                     ))}
                 </div>
             </main>
