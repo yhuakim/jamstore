@@ -1,27 +1,28 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { BaseClient } from '@xata.io/client';
 export default async function handler(req, res) {
-  const body = req.body
-  console.log(body)
+  const { visitorID } = req.body
+  //console.log(body)
 
   const xata = new BaseClient({
     branch: 'main',
     apiKey: process.env.API_KEY,
-    databaseURL: 'https://yhuakims-rtl9qu.xata.sh/db/hackthon'
+    databaseURL: process.env.XATA_DATABASE_URL
     //fetch: fetchImplementation // Required if your runtime doesn't provide a global `fetch` function.
   });
 
   try {
-    const record = await xata.db.anon_user.read(body.visitorID)
-    console.log(record);
-    if (record == null) {
-      await xata.db.anon_user.create(body.visitorID, {
-        _id: body.visitorID
+    //Fetch all users and find a match for the visitorID
+    const records = await xata.db.anon_user.select(["*"]).filter("id", visitorID).getAll()
+
+    //if a match is not found, create a user with the visitorID
+    if (records.length === 0) {
+      await xata.db.anon_user.create(visitorID, {
+        _id: visitorID
       })
     }
 
-    //console.log(page.records)
-    res.status(200).json({ data: record })
+    res.status(200)
   } catch (err) {
     console.error(err)
   }

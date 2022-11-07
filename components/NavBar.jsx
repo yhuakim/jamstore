@@ -32,9 +32,9 @@ const NavBar = () => {
                 <div className="container flex flex-wrap justify-between items-center mx-auto">
                     <Link href="/" className="flex items-center text-black">
                         <ShoppingCartIcon className='w-9 h-9' />
-                        <span class="self-center text-xl font-semibold whitespace-nowrap">JAMStore</span>
+                        <span className="self-center text-xl font-semibold whitespace-nowrap">JAMzStore</span>
                     </Link>
-                    <div class="flex md:order-2">
+                    <div className="flex md:order-2">
                         <Link href='/cart' className="text-black hover:text-white hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium relative rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
                             <ShoppingBagIcon className='w-6 h-6' />
                             <small className='bg-black rounded-full text-white text-[8px] font-semibold absolute px-1 top-0' >{totalQuantity}</small>

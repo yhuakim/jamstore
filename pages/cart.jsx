@@ -32,9 +32,25 @@ export default function Cart() {
             </Head>
             <main>
                 <div id='products' className="">
-                    <h1 className="text-3xl font-semibold text-center py-10">Products</h1>
-                    {cartItems.map((item, index) => (
-                        <div key={index} >{item.id} {item.quantity} {item.product_id.imageUrl} {item.product_id.name} {item.amount} </div>
+                    <h1 className="text-3xl font-semibold px-8 py-10">Cart({totalQuantity})</h1>
+                    {cartItems.map((item) => (
+                        <div key={item.id} className="flex justify-between border-b-2 mb-3 mx-8 w-6/6" >
+                            <div className="flex justify-evenly items-center w-4/6">
+                                <img className='w-20 h-10 object-contain' src={item.product_id.imageUrl} alt={`${item.product_id.name}`} />
+                                <div className="">
+                                    <h1 className="text-xl font-medium capitalize">{item.product_id.name}</h1>
+                                    <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                            </div>
+                            <div className="px-5 w-2/6 text-right">
+                                <p className="">
+                                    <b>₦{item.amount}</b>
+                                </p>
+                                <p className="font-normal text-[10px] text-slate-400">
+                                    <b>₦{(item.amount) / (item.quantity)} x {item.quantity}</b>
+                                </p>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </main>
