@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         const productExists = products.filter((product) => product === product_id)
 
         // if product doesn't exist, create a new record
-        if (productExists.length === 0) {
+        if (productExists.length === 0 || records.length === 0) {
             await xata.db.cart.create(product_id, {
                 quantity,
                 amount,

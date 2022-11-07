@@ -13,8 +13,7 @@ export default function Home({ products }) {
     const registerAnon = async () => {
       if (!isLoading) {
         const visitorID = data?.visitorId
-        const verifyAnon = await axios.post('/api/assignuser', { visitorID })
-        console.log(verifyAnon)
+        await axios.post('/api/assignuser', { visitorID })
       }
     }
     registerAnon()
