@@ -85,7 +85,7 @@ const Product = ({ product }) => {
                     </p>
                     <p>
                         <b>₦{product[0].discount_id && product[0].discount_id.isActive ? (product[0].price - (product[0].price * product[0].discount_id.discount_percent)) : product[0].price}</b> <br />
-                        <small><s className={`${!product[0].discount_id ? 'none' : 'text-gray-500 decoration-gray-500'}`}>₦{product[0].discount_id && product[0].discount_id.isActive ? product[0].price : ''}</s></small>
+                        <small><s className={`${!product[0].discount_id ? 'hidden' : 'text-gray-500 decoration-gray-500'}`}>₦{product[0].discount_id && product[0].discount_id.isActive ? product[0].price : ''}</s></small>
                     </p>
                     <div className="quantity py-2">
                         <ChevronUpIcon id='up' onClick={handleChange} className='w-6 h-6 hover:cursor-pointer' />

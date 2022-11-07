@@ -1,7 +1,5 @@
 import Link from "next/link"
 
-/* grid grid - cols - 3 gap - 4 w - 96 ml - 4 pt - 4
- */
 const Products = ({ products }) => {
     return (
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
