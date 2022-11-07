@@ -17,9 +17,6 @@ const NavBar = () => {
     const totalQuantity = cartItems.map((item) => item.quantity)
         .reduce((a, b) => a + b, 0)
 
-    const imageUrl = cartItems.map((item) => item.product_id.imageUrl)
-    console.log(totalQuantity, imageUrl)
-
     useEffect(() => {
         const getCartItems = async () => {
             const visitorID = data?.visitorId
